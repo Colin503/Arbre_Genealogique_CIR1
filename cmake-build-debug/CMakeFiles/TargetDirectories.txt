@@ -1,0 +1,3 @@
+/mnt/c/Users/colin/CLionProject/s2_projetfinal/cmake-build-debug/CMakeFiles/s2_projetfinal.dir
+/mnt/c/Users/colin/CLionProject/s2_projetfinal/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/c/Users/colin/CLionProject/s2_projetfinal/cmake-build-debug/CMakeFiles/rebuild_cache.dir
