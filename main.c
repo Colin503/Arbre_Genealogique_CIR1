@@ -1,1 +1,6 @@
-#include <projet.h>
+#include "projet.h"
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
