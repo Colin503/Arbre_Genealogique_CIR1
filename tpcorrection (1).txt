@@ -1,16 +1,4 @@
-ListeChainee* creer(){
-    ListeChainee* Li= malloc(sizeof (ListeChainee));
-    Li->premier=NULL;
-    Li->taille=0;
-    return Li;
-}
-void printf_Noeud(Noeud* noeud){
-    if(noeud!=NULL) {
-        //ListeChainee *Li = malloc(sizeof(ListeChainee));
-        printf("La valeur est: %d", noeud->val);
-        //noeud->suivant = Li->premier;
-        printf("Pointeur %p", noeud->suivant);
-    }
+
 }
 void afficher(ListeChainee* liste){
     Noeud* actuel;
