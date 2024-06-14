@@ -1,7 +1,3 @@
-//
-// Created by colin on 13/06/2024.
-//
-
 #ifndef S2_PROJETFINAL_PROJET_H
 #define S2_PROJETFINAL_PROJET_H
 #include <stdlib.h>
@@ -16,5 +12,7 @@ typedef struct pop{
 }Population;
 
 void insert(Population* p, int key, Person* data );
+void linkPopulation(Population p);
 
+}
 #endif //S2_PROJETFINAL_PROJET_H
