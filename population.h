@@ -15,6 +15,6 @@ typedef struct pop{
     int nb_personne;
 }Population;
 
-void insert(Population p, int key, Person* data );
+void insert(Population* p, int key, Person* data );
 
 #endif //S2_PROJETFINAL_PROJET_H
