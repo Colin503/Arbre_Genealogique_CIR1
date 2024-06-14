@@ -11,7 +11,7 @@
 #include "person.h"
 
 typedef struct pop{
-    Person* tab_personne;
+    Person** tab_personne;
     int nb_personne;
 }Population;
 
