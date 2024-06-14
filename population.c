@@ -5,7 +5,7 @@
 #include "population.h"
 
 
-void insert(Population p, int key, Person* data ) {
-    p.tab_personne[key]=data;
-    p.nb_personne++;
+void insert(Population* p, int key, Person* data ) {
+    p->tab_personne[key]=data;
+    p->nb_personne++;
 }
