@@ -40,12 +40,13 @@ Person* initPerson(char* csvline){
                     case 7:
                         pers->birthyear= atoi(chaine);
                         break;
-                    case 8:
-                        strcpy(pers->birthzipcode,chaine);
-                        break;
                 }
+
                 k++;
+
             }
+        }if(k==8){
+            strcpy(pers->birthzipcode,chaine);
         }
     }
     pers->p_father=NULL;
