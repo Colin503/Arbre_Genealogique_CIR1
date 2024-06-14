@@ -1,9 +1,5 @@
-//
-// Created by colin on 13/06/2024.
-//
-
-#ifndef S2_PROJETFINAL_PROJET_H
-#define S2_PROJETFINAL_PROJET_H
+#ifndef PROJET_FIN_PROJET_H
+#define PROJET_FIN_PROJET_H
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -20,9 +16,9 @@ typedef struct person{
     struct person * p_father;
     struct person * p_mother;
 }Person;
+Person* initPerson(char* csvline);
 
 
 
 
-
-#endif //S2_PROJETFINAL_PROJET_H
+#endif //PROJET_FIN_PROJET_H
