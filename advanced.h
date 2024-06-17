@@ -20,7 +20,7 @@ typedef struct arbre_binaire {
 }Arbre;
 
 Person** fratrie(Population p,Person* humain);
-Person** ancetre(Population p,Person* humain);
+Person** ancestorsPersons(Population t, Person* p) ;
 
 
 #endif //S2_PROJETFINAL_ADVANCED_H
