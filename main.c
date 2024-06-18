@@ -5,6 +5,7 @@ int main() {
     char path[30];
     printf("%s %d\n",path,fichePath(path, pop.tab_personne[6666]));
     exportPersonHTML(pop,pop.tab_personne[6666],path);
+    free_population(pop);
     return 0;
 }
 
