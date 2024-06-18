@@ -2,9 +2,9 @@
 #include "advanced.h"
 
 
-Person** fratrie(Population p,Person* humain) {
+Person** fratrie(Population p,Person* humain) { //Fonction qui renvoie la Fratrie (structure) d'une personne passé en paramètre
     int indice=0;
-    for (int i=0;i<p.nb_personne;i++) {
+    for (int i=0;i<p.nb_personne;i++) { //On compte le nombre total de frères et soeurs
         if (p.tab_personne[i]->father_id==humain->father_id && p.tab_personne[i]->mother_id==humain->mother_id) {
             indice++;
         }
@@ -12,7 +12,7 @@ Person** fratrie(Population p,Person* humain) {
 
     Person** tab_fratrie= malloc(indice*sizeof(Person*));
     indice=0;
-    for (int i=0;i<p.nb_personne;i++) {
+    for (int i=0;i<p.nb_personne;i++) { //On ajoute les frères et soeurs dans le tableau de personne (Person**)
         if (p.tab_personne[i]->father_id==humain->father_id && p.tab_personne[i]->mother_id==humain->mother_id) {
             tab_fratrie[indice]=p.tab_personne[i];
             indice++;
@@ -21,8 +21,8 @@ Person** fratrie(Population p,Person* humain) {
     return tab_fratrie;
 }
 
-Person** ancestorsPersons(Population t, Person* p) {
-    Person** tab_ancetre= malloc(31* sizeof(Person*)); //31 cases car on se limites à 5 générations pour l'instant
+Person** ancestorsPersons(Population t, Person* p) { //Fonction qui renvoie un tableau de personne contenant les 30 ancetres d'une personne 
+    Person** tab_ancetre= malloc(31* sizeof(Person*)); //31 cases car on se limite à 5 générations
         tab_ancetre[0] = p;
 
         tab_ancetre[1] = p->p_father;
@@ -60,16 +60,16 @@ Person** ancestorsPersons(Population t, Person* p) {
         tab_ancetre[29] = p->p_mother->p_mother->p_mother->p_father;
         tab_ancetre[30] = p->p_mother->p_mother->p_mother->p_mother;
 
-    return tab_ancetre;
+    return tab_ancetre; 
 }
 
-Person* oldestancertor(Population t,Person* p) { //Améliorer fonctions ancestor pour pouvoir aller au plus lointain
+Person* oldestancertor(Population t,Person* p) { //Renvoie l'ancetre le plus lointain d'une personne
     Person* ancestor=p;
     int temp=p->birthyear;
-    Person** tab_ancestor= ancestorsPersons(t,p);
+    Person** tab_ancestor= ancestorsPersons(t,p); //On utilise la fonctions ancestorsPersons pour créer le tableau des ancetres de la personne.
     for (int i=0;i<31;i++) {
         if (tab_ancestor[i]->id!=0) {
-            if (tab_ancestor[i]->birthyear<temp) {
+            if (tab_ancestor[i]->birthyear<temp) { //On itère sur le tableau et on compare leur année de naissance pour trouver le plus jeune
                 ancestor = tab_ancestor[i];
                 temp = tab_ancestor[i]->birthyear;
             }
