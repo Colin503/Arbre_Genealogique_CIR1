@@ -9,10 +9,8 @@ int main() {
     char path[30];
     pop = read_csv("../10000.csv");
     linkPopulation(pop);
-    Person** tab_fratrie= fratrie(pop,pop.tab_personne[4576]);
-    fichePath(path,pop.tab_personne[4576]);
-    exportPersonHTML(pop,pop.tab_personne[4576],path);
-    affichage_tableau(tab_fratrie);
-    free(tab_fratrie);
+    fichePath(path,pop.tab_personne[4724]);
+    exportAncestorHTML(pop,pop.tab_personne[4724],path);
+    //exportFratrieHTML(pop,pop.tab_personne[4724],path);
     return 0;
 }
