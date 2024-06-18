@@ -4,11 +4,16 @@
 
 #include "advanced.h"
 
-
 Person** fratrie(Population p,Person* humain) {
-    Person** tab_fratrie;
-    tab_fratrie[0]=humain;
-    int indice=1;
+    int indice=0;
+    for (int i=0;i<p.nb_personne;i++) {
+        if (p.tab_personne[i]->father_id==humain->father_id && p.tab_personne[i]->mother_id==humain->mother_id) {
+            indice++;
+        }
+    }
+
+    Person** tab_fratrie= malloc(indice*sizeof(Person*));
+    indice=0;
     for (int i=0;i<p.nb_personne;i++) {
         if (p.tab_personne[i]->father_id==humain->father_id && p.tab_personne[i]->mother_id==humain->mother_id) {
             tab_fratrie[indice]=p.tab_personne[i];
@@ -17,7 +22,6 @@ Person** fratrie(Population p,Person* humain) {
     }
     return tab_fratrie;
 }
-
 Person** ancestorsPersons(Population t, Person* p) {
     Person** tab_ancetre= malloc(31* sizeof(Person*)); //31 cases car on se limites à 5 générations pour l'instant
         tab_ancetre[0] = p;
