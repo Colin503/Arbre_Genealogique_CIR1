@@ -59,6 +59,13 @@ Person** ancestorsPersons(Population t, Person* p) {
         
     return tab_ancetre;
 }
+void ancestors_debug(Person** tab,const char* filen){
+    FILE* f= fopen(filen,"w");
+    for(int i=0; i<7;i++){
+        fprintf(f,"%d,%d,%d,%s,%s,%s,%s",tab[i]->id,tab[i]->father_id,tab[i]->mother_id,tab[i]->firstname,tab[i]->lastname,tab[i]->birth,tab[i]->birthzipcode);
+    }
+    fclose(f);
+}
 
 Person* oldestancertor(Population t,Person* p) {
     Person* ancestor;
