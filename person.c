@@ -1,4 +1,5 @@
 #include "person.h"
+
 Person* initPerson(char* csvline){
     Person* pers= malloc(sizeof(Person));
     FILE* f = fopen(csvline, "r");
