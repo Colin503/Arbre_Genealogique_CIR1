@@ -6,12 +6,12 @@ void free_population(Population pop) {
 }
 int main() {
     Population pop;
-    char path[30];
+    char path_p[30];
     pop = read_csv("../10000.csv");
     linkPopulation(pop);
-    fichePath(path,pop.tab_personne[4724]);
-    exportAncestorHTML(pop,pop.tab_personne[4724],path);
-    //exportFratrieHTML(pop,pop.tab_personne[4724],path);
+    fichePath_page(path_p,pop.tab_personne[4374]);
+    exportAncestorHTML(pop,pop.tab_personne[4374],path_p);
+    //exportFratrieHTML(pop,pop.tab_personne[9999],path_p);
     free_population(pop);
     return 0;
 }
