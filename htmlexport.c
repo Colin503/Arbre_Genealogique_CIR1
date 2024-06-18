@@ -18,17 +18,17 @@ int fichePath(char* buffer, Person* p){
 void exportPersonHTML(const Population t,Person* p, char* path){
     FILE* f =fopen(path,"w");
     fprintf(f,("<!DOCTYPE html>\n"
-              "<html>\n"
-              "<head>\n"
-              "\t<meta charset=\"utf-8\">\n"
-              "\t<link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\">\n"
-              "\t<script type=\"text/javascript\" src=\"fichier.js\"></script>\n"
-              "    <link rel=\"icon\" href=\"img/30924.png\" type=\"image/icon type\">\n"
-              "\n"
-              "    <title>Arbre généalogique</title>\n"
-              "</head>\n"
-              "\n"
-              "<body>\n\t<div id='tree'>"));
+               "<html>\n"
+               "<head>\n"
+               "\t<meta charset=\"utf-8\">\n"
+               "\t<link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\">\n"
+               "\t<script type=\"text/javascript\" src=\"fichier.js\"></script>\n"
+               "    <link rel=\"icon\" href=\"img/30924.png\" type=\"image/icon type\">\n"
+               "\n"
+               "    <title>Arbre généalogique</title>\n"
+               "</head>\n"
+               "\n"
+               "<body>\n\t<div id='tree'>"));
     char buffer[100];
     titreHTMLPerson(buffer, p);
     fprintf(f,"\t%s\n",buffer);
