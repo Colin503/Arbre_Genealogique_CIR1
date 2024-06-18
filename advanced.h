@@ -1,7 +1,3 @@
-//
-// Created by colin on 14/06/2024.
-//
-
 #ifndef S2_PROJETFINAL_ADVANCED_H
 #define S2_PROJETFINAL_ADVANCED_H
 #include "filemanager.h"
