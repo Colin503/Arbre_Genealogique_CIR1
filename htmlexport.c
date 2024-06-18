@@ -1,5 +1,5 @@
 #include "htmlexport.h"
-#define TAILLE_MAX 100000
+
 int titreHTMLPerson(char* buffer, Person* p){
     int nb=0;
     nb+= sprintf(buffer, "<h2>");
@@ -18,7 +18,7 @@ int fichePath_page(char* buffer, Person* p){
 }
 int fichePath(char* buffer, Person* p){
     int nb=0;
-    nb+= sprintf(buffer,"%s","../site_arbre/");
+    nb+= sprintf(buffer,"../site_arbre/");
     nb+= sprintf(buffer+nb,"%d",p->id);
     nb+= sprintf(buffer+nb,"%s","-fiche.html");
     return nb;
