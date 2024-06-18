@@ -1,3 +1,8 @@
+void free_population(Population pop) {
+    for (int i=0; i<pop.nb_personne; i++)
+        free(pop.tab_personne[i]);
+    free(pop.tab_personne);
+}
 int main() {
     Population pop;
     pop = read_csv("../10000.csv");
