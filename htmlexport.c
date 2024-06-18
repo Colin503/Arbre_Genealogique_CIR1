@@ -1,5 +1,6 @@
 #include "htmlexport.h"
 
+// Fonction pour générer le titre HTML pour une personne
 int titreHTMLPerson(char* buffer, Person* p){
     int nb=0;
     nb+= sprintf(buffer, "<h2>");
@@ -9,6 +10,8 @@ int titreHTMLPerson(char* buffer, Person* p){
     nb+= sprintf(buffer+nb, "</h2>");
     return nb;
 }
+
+// Fonction pour générer le chemin de la page HTML de l'arbre ou de la fratrie
 int fichePath_page(char* buffer, Person* p){
     int nb=0;
     nb+= sprintf(buffer,"%s","../site_arbre/");
@@ -16,6 +19,8 @@ int fichePath_page(char* buffer, Person* p){
     nb+= sprintf(buffer+nb,"%s","-page.html");
     return nb;
 }
+
+// Fonction pour générer le chemin de la fiche HTML
 int fichePath(char* buffer, Person* p){
     int nb=0;
     nb+= sprintf(buffer,"../site_arbre/");
@@ -24,11 +29,13 @@ int fichePath(char* buffer, Person* p){
     return nb;
 }
 
+// Fonction pour générer l'HTML des ancêtres d'une personne
 int printAncestorsToHTML(char* buffer, const Population t, Person* p){
     Person** ancetres = ancestorsPersons(t,p);
     int nb=0;
     nb+= sprintf(buffer+nb,"<div class='ligne'>\n");
     char titre[30];
+    // Génération des noeuds des ancêtres de la 3ème génération (Arrière Grand-Parents)
     for(int i=14;i>=7;i--){
         fichePath(titre, ancetres[i]);
         if(strcmp(ancetres[i]->firstname,"-")!=0) {
@@ -39,6 +46,7 @@ int printAncestorsToHTML(char* buffer, const Population t, Person* p){
             nb+= sprintf(buffer+nb,"<div class='inconnu'><p>Inconnu</p></div>\n");}
     }    nb+= sprintf(buffer+nb,"</div>\n");
     nb+=sprintf(buffer+nb,"<div class='ligne'>\n");
+    // Génération des noeuds des ancêtres de la 2ème génération (Grand-Parents)
     for(int i=6;i>=3;i--){
         fichePath(titre, ancetres[i]);
         if(strcmp(ancetres[i]->firstname,"-")!=0) {
@@ -49,6 +57,7 @@ int printAncestorsToHTML(char* buffer, const Population t, Person* p){
             nb+=sprintf(buffer+nb,"<div class='inconnu'><p>Inconnu</p></div>\n");}
     }    nb+=sprintf(buffer+nb,"</div>\n");
     nb+=sprintf(buffer+nb,"<div class='ligne'>\n");
+    // Génération des noeuds des ancêtres de la 1ère génération (Parents)
     for(int i=2;i>=1;i--){
         fichePath(titre, ancetres[i]);
         if(strcmp(ancetres[i]->firstname,"-")!=0) {
@@ -59,14 +68,17 @@ int printAncestorsToHTML(char* buffer, const Population t, Person* p){
             nb+=sprintf(buffer+nb,"<div class='inconnu'><p>Inconnu</p></div>\n");}
     }    nb+=sprintf(buffer+nb,"</div>\n");
     nb+=sprintf(buffer+nb,"<div class='ligne'>\n");
+    // Génération du noeud de la personne elle-même
     fichePath(titre, ancetres[0]);
     nb+=sprintf(buffer+nb, "<div class='pers'><a href=\"%s\" ><p>Nom: %s <br>Prenom: %s </p></a></div>\n",titre, ancetres[0]->firstname,
                 ancetres[0]->lastname);
     exportficheHTML(t,ancetres[0],titre);
     nb+=sprintf(buffer+nb,"</div>\n");
-    free(ancetres);
+    free(ancetres);// Libère la mémoire allouée pour le tableau d'ancêtres
     return nb;
 }
+
+// Fonction pour exporter la page HTML des ancêtres d'une personne
 void exportAncestorHTML(const Population t,Person* p, char* path){
         FILE* f =fopen(path,"w");
         fprintf(f,("<!DOCTYPE html>\n"
@@ -82,19 +94,22 @@ void exportAncestorHTML(const Population t,Person* p, char* path){
                    "\n"
                    "<body>\n\t<div id='tree'>"));
         char buffer[100];
-        titreHTMLPerson(buffer, p);
+        titreHTMLPerson(buffer, p); // Génère le titre HTML pour la personne
         fprintf(f,"\t%s\n",buffer);
         char buffer2[TAILLE_MAX];
-        printAncestorsToHTML(buffer2,t, p);
+        printAncestorsToHTML(buffer2,t, p);// Génère le contenu HTML des ancêtres
         fprintf(f,"\t%s\n",buffer2);
         fprintf(f,"</div></body>\n</html>");
 }
+
+// Fonction pour générer le contenu HTML d'une fiche personnelle
 int contenu_fiche(char* buffer, const Population t, Person* p){
     int nb=0;
     nb+=sprintf(buffer+nb,"<div class='fiche'><p>Prénom: %s\n<br>Nom: %s\n",p->firstname,p->lastname);
     nb+=sprintf(buffer+nb,"<br>Date de naissance: %d/%d/%d<br>Lieu de naissance: %s </p></div>",p->birthday,p->birthmonth,p->birthyear,p->birthzipcode);
     return nb;
 }
+// Fonction pour exporter la fiche HTML d'une personne
 void exportficheHTML(const Population t,Person* p, char* path){
     FILE* f =fopen(path,"w");
     fprintf(f,("<!DOCTYPE html>\n"
@@ -110,17 +125,18 @@ void exportficheHTML(const Population t,Person* p, char* path){
                "\n"
                "<body>\n\t<div id='tree'>"));
     char buffer[100];
-    titreHTMLPerson(buffer, p);
+    titreHTMLPerson(buffer, p); // Génère le titre HTML pour la personne
     fprintf(f,"\t%s\n",buffer);
     char buffer2[TAILLE_MAX];
-    contenu_fiche(buffer2,t,p);
+    contenu_fiche(buffer2,t,p);// Génère le contenu HTML de la fiche
     fprintf(f,"\t%s\n",buffer2);
     fprintf(f,"</div></body>\n</html>");
 }
+
+// Fonction pour générer l'HTML de la fratrie d'une personne
 int printFratrieToHTML(char* buffer, const Population t, Person* p){
     Fratrie fr= fratrie(t,p);
     int nb=0;
-    printf("%d",fr.taille);
     nb+= sprintf(buffer+nb,"<div class='ligne'>\n");
     char titre[30];
     for(int i=0;i<fr.taille;i++){
@@ -132,6 +148,7 @@ int printFratrieToHTML(char* buffer, const Population t, Person* p){
     return nb;
 }
 
+// Fonction pour créer la page HTML de la fratrie d'une personne
 void exportFratrieHTML(const Population t,Person* p, char* path){
     FILE* f =fopen(path,"w");
     fprintf(f,("<!DOCTYPE html>\n"
@@ -147,10 +164,10 @@ void exportFratrieHTML(const Population t,Person* p, char* path){
                "\n"
                "<body>\n\t<div id='tree'>"));
     char buffer[100];
-    titreHTMLPerson(buffer, p);
+    titreHTMLPerson(buffer, p);// Génère le titre HTML pour la personne
     fprintf(f,"\t%s\n",buffer);
     char buffer2[1000];
-    printFratrieToHTML(buffer2,t, p);
+    printFratrieToHTML(buffer2,t, p);// Génère le contenu HTML de la fratrie
     fprintf(f,"\t%s\n",buffer2);
     fprintf(f,"</div></body>\n</html>");
 }
