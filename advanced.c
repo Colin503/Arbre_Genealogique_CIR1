@@ -64,13 +64,19 @@ Person** ancestorsPersons(Population t, Person* p) {
 }
 
 Person* oldestancertor(Population t,Person* p) { //Améliorer fonctions ancestor pour pouvoir aller au plus lointain
-    Person* ancestor;
+    Person* ancestor=p;
+    int temp=p->birthyear;
     Person** tab_ancestor= ancestorsPersons(t,p);
     for (int i=0;i<31;i++) {
-        if (tab_ancestor[31-i]!=NULL) {
-            ancestor=tab_ancestor[31-i];
-            return ancestor;
+        if (tab_ancestor[i]->id!=0) {
+            if (tab_ancestor[i]->birthyear<temp) {
+                ancestor = tab_ancestor[i];
+                temp = tab_ancestor[i]->birthyear;
+            }
         }
     }
+    return ancestor;
+}
+
 
 }
