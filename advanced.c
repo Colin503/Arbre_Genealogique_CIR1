@@ -19,14 +19,54 @@ Person** fratrie(Population p,Person* humain) {
 }
 
 Person** ancestorsPersons(Population t, Person* p) {
-    Person** tab_ancetre= malloc(7* sizeof(Person*)); //7 cases car on se limites à 2 générations pour l'instant
-    tab_ancetre[0]=p;
-    tab_ancetre[1]=p->p_father;
-    tab_ancetre[2]=p->p_mother;
-    tab_ancetre[3]=p->p_father->p_father;
-    tab_ancetre[4]=p->p_father->p_mother;
-    tab_ancetre[5]=p->p_mother->p_father;
-    tab_ancetre[6]=p->p_mother->p_mother;
-    
+    Person** tab_ancetre= malloc(31* sizeof(Person*)); //31 cases car on se limites à 5 générations pour l'instant
+        tab_ancetre[0] = p;
+
+        tab_ancetre[1] = p->p_father;
+        tab_ancetre[2] = p->p_mother;
+
+        tab_ancetre[3] = p->p_father->p_father;
+        tab_ancetre[4] = p->p_father->p_mother;
+        tab_ancetre[5] = p->p_mother->p_father;
+        tab_ancetre[6] = p->p_mother->p_mother;
+
+        tab_ancetre[7] = p->p_father->p_father->p_father;
+        tab_ancetre[8] = p->p_father->p_father->p_mother;
+        tab_ancetre[9] = p->p_father->p_mother->p_father;
+        tab_ancetre[10] = p->p_father->p_mother->p_mother;
+        tab_ancetre[11] = p->p_mother->p_father->p_father;
+        tab_ancetre[12] = p->p_mother->p_father->p_mother;
+        tab_ancetre[13] = p->p_mother->p_mother->p_father;
+        tab_ancetre[14] = p->p_mother->p_mother->p_mother;
+
+
+        tab_ancetre[15] = p->p_father->p_father->p_father->p_father;
+        tab_ancetre[16] = p->p_father->p_father->p_father->p_mother;
+        tab_ancetre[17] = p->p_father->p_father->p_mother->p_father;
+        tab_ancetre[18] = p->p_father->p_father->p_mother->p_mother;
+        tab_ancetre[19] = p->p_father->p_mother->p_father->p_father;
+        tab_ancetre[20] = p->p_father->p_mother->p_father->p_mother;
+        tab_ancetre[21] = p->p_father->p_mother->p_mother->p_father;
+        tab_ancetre[22] = p->p_father->p_mother->p_mother->p_mother;
+        tab_ancetre[23] = p->p_mother->p_father->p_father->p_father;
+        tab_ancetre[24] = p->p_mother->p_father->p_father->p_mother;
+        tab_ancetre[25] = p->p_mother->p_father->p_mother->p_father;
+        tab_ancetre[26] = p->p_mother->p_father->p_mother->p_mother;
+        tab_ancetre[27] = p->p_mother->p_mother->p_father->p_father;
+        tab_ancetre[28] = p->p_mother->p_mother->p_father->p_mother;
+        tab_ancetre[29] = p->p_mother->p_mother->p_mother->p_father;
+        tab_ancetre[30] = p->p_mother->p_mother->p_mother->p_mother;
+        
     return tab_ancetre;
+}
+
+Person* oldestancertor(Population t,Person* p) {
+    Person* ancestor;
+    Person** tab_ancestor= ancestorsPersons(t,p);
+    for (int i=0;i<31;i++) {
+        if (tab_ancestor[31-i]!=NULL) {
+            ancestor=tab_ancestor[31-i];
+            return ancestor;
+        }
+    }
 }
