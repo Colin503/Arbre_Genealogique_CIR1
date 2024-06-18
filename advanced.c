@@ -2,23 +2,20 @@
 #include "advanced.h"
 
 
-Person** fratrie(Population p,Person* humain) { //Fonction qui renvoie la Fratrie (structure) d'une personne passé en paramètre
-    int indice=0;
-    for (int i=0;i<p.nb_personne;i++) { //On compte le nombre total de frères et soeurs
+Fratrie fratrie(Population p,Person* humain) {
+    Fratrie f;
+    f.taille = 0;
+    for (int i = 0; i < p.nb_personne; i++)
+        if (p.tab_personne[i]->father_id == humain->father_id && p.tab_personne[i]->mother_id == humain->mother_id)
+            f.taille++;
+    f.tab= malloc(f.taille*sizeof(Person*));
+    f.taille=0;
+    for (int i=0;i<p.nb_personne;i++)
         if (p.tab_personne[i]->father_id==humain->father_id && p.tab_personne[i]->mother_id==humain->mother_id) {
-            indice++;
+            f.tab[f.taille] = p.tab_personne[i];
+            f.taille++;
         }
-    }
-
-    Person** tab_fratrie= malloc(indice*sizeof(Person*));
-    indice=0;
-    for (int i=0;i<p.nb_personne;i++) { //On ajoute les frères et soeurs dans le tableau de personne (Person**)
-        if (p.tab_personne[i]->father_id==humain->father_id && p.tab_personne[i]->mother_id==humain->mother_id) {
-            tab_fratrie[indice]=p.tab_personne[i];
-            indice++;
-        }
-    }
-    return tab_fratrie;
+    return f;
 }
 
 Person** ancestorsPersons(Population t, Person* p) { //Fonction qui renvoie un tableau de personne contenant les 30 ancetres d'une personne 
