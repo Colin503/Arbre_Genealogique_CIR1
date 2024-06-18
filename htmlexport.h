@@ -4,5 +4,6 @@
 
 int titreHTMLPerson(char* buffer, Person* p);
 int fichePath(char* buffer, Person* p);
-void exportPersonHTML(const Population t,Person* p, char* path);
+void exportAncestorHTML(const Population t,Person* p, char* path);
+void exportFratrieHTML(const Population t,Person* p, char* path);
 #endif //PROJET_FIN_HTMLEXPORT_H
