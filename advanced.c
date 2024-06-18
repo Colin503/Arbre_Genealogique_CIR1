@@ -1,8 +1,6 @@
-//
-// Created by colin on 14/06/2024.
-//
 
 #include "advanced.h"
+
 
 Person** fratrie(Population p,Person* humain) {
     int indice=0;
@@ -22,6 +20,7 @@ Person** fratrie(Population p,Person* humain) {
     }
     return tab_fratrie;
 }
+
 Person** ancestorsPersons(Population t, Person* p) {
     Person** tab_ancetre= malloc(31* sizeof(Person*)); //31 cases car on se limites à 5 générations pour l'instant
         tab_ancetre[0] = p;
@@ -60,18 +59,11 @@ Person** ancestorsPersons(Population t, Person* p) {
         tab_ancetre[28] = p->p_mother->p_mother->p_father->p_mother;
         tab_ancetre[29] = p->p_mother->p_mother->p_mother->p_father;
         tab_ancetre[30] = p->p_mother->p_mother->p_mother->p_mother;
-        
+
     return tab_ancetre;
 }
-void ancestors_debug(Person** tab,const char* filen){
-    FILE* f= fopen(filen,"w");
-    for(int i=0; i<7;i++){
-        fprintf(f,"%d,%d,%d,%s,%s,%s,%s",tab[i]->id,tab[i]->father_id,tab[i]->mother_id,tab[i]->firstname,tab[i]->lastname,tab[i]->birth,tab[i]->birthzipcode);
-    }
-    fclose(f);
-}
 
-Person* oldestancertor(Population t,Person* p) {
+Person* oldestancertor(Population t,Person* p) { //Améliorer fonctions ancestor pour pouvoir aller au plus lointain
     Person* ancestor;
     Person** tab_ancestor= ancestorsPersons(t,p);
     for (int i=0;i<31;i++) {
@@ -80,4 +72,5 @@ Person* oldestancertor(Population t,Person* p) {
             return ancestor;
         }
     }
+
 }
