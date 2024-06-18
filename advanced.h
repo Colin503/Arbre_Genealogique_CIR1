@@ -7,20 +7,9 @@
 #include "filemanager.h"
 
 
-typedef struct s_noeud Noeud;
-struct s_noeud {
-    //Noeud fg;
-    //Noeud fd;
-};
-
-
-typedef struct arbre_binaire {
-    Noeud noyau;
-
-}Arbre;
-
 Person** fratrie(Population p,Person* humain);
 Person** ancestorsPersons(Population t, Person* p) ;
+Person* oldestancertor(Population t,Person* p);
 
 
 #endif //S2_PROJETFINAL_ADVANCED_H
