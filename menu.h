@@ -7,7 +7,8 @@
 
 #include "htmlexport.h"
 
-void menu(Population t,Person** tab);
+void menu(Population t);
 void affichage_tableau(Person** tab);
+void affichage_fratrie(Fratrie f);
 
 #endif //S2_PROJETFINAL_MENU_H
