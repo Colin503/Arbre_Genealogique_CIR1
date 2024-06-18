@@ -6,11 +6,15 @@
 #define S2_PROJETFINAL_ADVANCED_H
 #include "filemanager.h"
 
+typedef struct fratrie{
+    Person** tab;
+    int taille;
+}Fratrie;
 
-Person** fratrie(Population p,Person* humain);
-Person** ancestorsPersons(Population t, Person* p) ;
+Fratrie fratrie(Population p,Person* humain);
+Person** ancestorsPersons(Population p,Person* humain);
 void ancestors_debug(Person** tab,const char* filen);
-Person* oldestancertor(Population t,Person* p);
+void fratrie_debug(Person** tab,const char* filen);
 
 
 #endif //S2_PROJETFINAL_ADVANCED_H
