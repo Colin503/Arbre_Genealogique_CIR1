@@ -17,3 +17,11 @@ Population read_csv(const char* filename){
     }
     return pop;
 }
+Population write_csv(Population pop,const char* filename){
+    FILE* f = fopen(filename, "w");
+    for(int i=0; i<pop.nb_personne;i++)
+        fprintf(f,"%d,%d,%d,%s,%s,%s,%s",pop.tab_personne[i]->id,pop.tab_personne[i]->father_id
+        ,pop.tab_personne[i]->mother_id,pop.tab_personne[i]->lastname,pop.tab_personne[i]->firstname
+    ,pop.tab_personne[i]->birth,pop.tab_personne[i]->birthzipcode);
+    return pop;
+}
