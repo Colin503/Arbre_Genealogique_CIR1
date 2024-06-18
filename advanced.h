@@ -9,6 +9,7 @@
 
 Person** fratrie(Population p,Person* humain);
 Person** ancestorsPersons(Population t, Person* p) ;
+void ancestors_debug(Person** tab,const char* filen);
 Person* oldestancertor(Population t,Person* p);
 
 
