@@ -2,10 +2,11 @@
 
 Person* initPerson(char* csvline){
     Person* pers= malloc(sizeof(Person));
-    FILE* f = fopen(csvline, "r");
     char chaine[64];
     if(csvline==NULL)
-        printf("Prblm\n");
+        return NULL;
+    if(pers==NULL)
+        return NULL;
     else{
         int j=0,k=0;
         for(int i=0;i< strlen(csvline);i++){
