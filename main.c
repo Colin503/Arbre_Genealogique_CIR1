@@ -12,5 +12,6 @@ int main() {
     fichePath(path,pop.tab_personne[4724]);
     exportAncestorHTML(pop,pop.tab_personne[4724],path);
     //exportFratrieHTML(pop,pop.tab_personne[4724],path);
+    free_population(pop);
     return 0;
 }
