@@ -1,6 +1,8 @@
 #ifndef PROJET_FIN_HTMLEXPORT_H
 #define PROJET_FIN_HTMLEXPORT_H
 #include "advanced.h"
+#define TAILLE_CHEMIN_ACCES 100
+#define TAILLE_MAX 100000
 
 int titreHTMLPerson(char* buffer, Person* p);
 int fichePath_page(char* buffer, Person* p);
