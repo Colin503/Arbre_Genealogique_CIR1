@@ -76,11 +76,10 @@ Après avoir lancé le programme, un menu avec 4 options s'affiche. Vous pouvez 
 1. **Obtenir la fratrie d'une personne**
 2. **Obtenir l'arbre généalogique d'une personne**
 3. **Obtenir l'ancêtre le plus lointain d'une personne**
-4. **Obtenir l'ancêtre commun de deux personnes**
 
 Pour utiliser n'importe laquelle de ces options, vous devez entrer l'ID d'une personne.
 
-Le résultat sera affiché dans la console et également écrit dans un fichier HTML au format `id-fiche.html`. Pour que le fichier HTML soit correctement stylisé, le fichier `style.css` est requis.
+Le résultat sera affiché dans la console et également écrit dans un fichier HTML. Pour que le fichier HTML soit correctement stylisé, le fichier `style.css` est requis.
 
 ## Auteurs
 
