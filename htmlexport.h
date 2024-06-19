@@ -1,5 +1,5 @@
-#ifndef PROJET_FIN_HTMLEXPORT_H
-#define PROJET_FIN_HTMLEXPORT_H
+#ifndef PROJETCIR1_RENNES_GROUPE4_HTMLEXPORT_H
+#define PROJETCIR1_RENNES_GROUPE4_HTMLEXPORT_H
 
 //Nombre maximum de carctères contenus dans le chemin d'accès
 #define TAILLE_CHEMIN_ACCES 100
@@ -18,4 +18,4 @@ int printAncestorsToHTML(char* buffer, Person* p);
 void exportFratrieHTML(const Population t,Person* p, char* path);
 int printFratrieToHTML(char* buffer, const Population t, Person* p);
 int contenu_fiche(char* buffer, Person* p);
-#endif //PROJET_FIN_HTMLEXPORT_H
+#endif //PROJETCIR1_RENNES_GROUPE4_HTMLEXPORT_H
