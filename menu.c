@@ -4,7 +4,6 @@ void menu(Population t) {
     char temp;
     char path[TAILLE_CHEMIN_ACCES];
     int id;
-
     printf("Hey, que souhaitez vous rechercher ?\n\n(1) La Fratrie d'une personne\n(2) Les ancetres d'une personne sur 4 générations\n(3) Le plus lointain ancetre d'une personne\n");
     scanf("%c",&temp);
     switch (temp) {
