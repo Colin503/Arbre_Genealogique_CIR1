@@ -1,13 +1,13 @@
 #include "advanced.h"
 
-Fratrie fratrie(Population p,Person* humain) {
+Fratrie fratrie(Population p,Person* humain) { //Fontion qui renvoie un tableau de personne contenant la fratrie de la personne humain
     Fratrie f;
     f.taille = 0;
-    if(humain->father_id != 0 || humain->mother_id != 0) {
+    if(humain->father_id != 0 || humain->mother_id != 0) { // --> si ses parents ne sont pas inconnus
         for (int i = 0; i < p.nb_personne; i++)
-            if (p.tab_personne[i]->father_id == humain->father_id && p.tab_personne[i]->mother_id == humain->mother_id)
+            if (p.tab_personne[i]->father_id == humain->father_id && p.tab_personne[i]->mother_id == humain->mother_id) --> si ils ont les memes parents que humain
                 f.taille++;
-        f.tab = malloc(f.taille * sizeof(Person *));
+        f.tab = malloc(f.taille * sizeof(Person *)); //on alloue de la mémoire
         f.taille = 0;
         for (int i = 0; i < p.nb_personne; i++)
             if (p.tab_personne[i]->father_id == humain->father_id &&
@@ -18,10 +18,10 @@ Fratrie fratrie(Population p,Person* humain) {
     }
     else{
         f.taille=1;
-        f.tab = malloc( sizeof(Person *));
-        f.tab[0] = humain;
+        f.tab = malloc( sizeof(Person *)); //on alloue de la mémoire
+        f.tab[0] = humain; 
     }
-    return f;
+    return f; //on renvoie la fratrie
 }
 
 Person** ancestorsPersons(Person* p) { //Fonction qui renvoie un tableau de personne contenant les 30 ancetres d'une personne
