@@ -1,1 +1,0 @@
-/usr/bin/cc -g CMakeFiles/s2_projetfinal.dir/main.c.o CMakeFiles/s2_projetfinal.dir/projet.c.o -o s2_projetfinal 
