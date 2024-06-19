@@ -18,18 +18,23 @@ void menu(Population t) {
             printf("Entrez l'id de la personne que vous souhaitez rechercher --> ");
             scanf("%d", &id);
             fichePath_page(path, t.tab_personne[id]);
-            exportAncestorHTML(t, t.tab_personne[id], path);
+            exportAncestorHTML(t.tab_personne[id], path);
             break;
         case '3':
             printf("Entrez l'id de la personne que vous souhaitez rechercher --> ");
             scanf("%d", &id);
-            Person *old = oldestancertor(t, t.tab_personne[id]);
-            fichePath(path, t.tab_personne[id]);
-            exportficheHTML(t, t.tab_personne[id], path);
-            printf("Id: %d\n Nom : %s\nPrenom : %s\nDate de naissance : %d/%d/%d\nVille de naissance : %s\n", old->id, old->lastname,
-                   old->firstname, old->birthday, old->birthmonth, old->birthyear, old->birthzipcode);
-            fichePath(path, old);
-            exportficheHTML(t, old, path);
+            Person *old = oldestancertor( t.tab_personne[id]);
+            if(old->id!=t.tab_personne[id]->id) {
+                fichePath(path, t.tab_personne[id]);
+                exportficheHTML(t.tab_personne[id], path);
+                printf("Id: %d\nNom : %s\nPrenom : %s\nDate de naissance : %d/%d/%d\nVille de naissance : %s\n",
+                       old->id, old->lastname,
+                       old->firstname, old->birthday, old->birthmonth, old->birthyear, old->birthzipcode);
+                fichePath(path, old);
+                exportficheHTML(old, path);
+            } else{
+                printf("Cette personne n'a pas d'ancêtres connus dans cette dans cette base de données.\n");
+            }
             break;
         default:
             printf("Choix invalide. Fin du programme.\n");
