@@ -1,5 +1,5 @@
-#ifndef PROJET_FIN_PERSON_H
-#define PROJET_FIN_PERSON_H
+#ifndef PROJETCIR1_RENNES_GROUPE4_PERSON_H
+#define PROJETCIR1_RENNES_GROUPE4_PERSON_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -20,4 +20,4 @@ typedef struct person{
 
 Person* initPerson(char* csvline);
 
-#endif //PROJET_FIN_PERSON_H
+#endif //PROJETCIR1_RENNES_GROUPE4_PERSON_H
