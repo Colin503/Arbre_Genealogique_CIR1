@@ -57,7 +57,7 @@ Suivez ces étapes pour configurer et exécuter le programme :
    ```sh
    gcc main.c -o arbre_genealogique
    ```
-
+   Sur C-Lion, déplacer tous les fichiers dans un projet en respectant l'arborescence ci-dessus.
 3. **Exécuter le programme** :
    Une fois la compilation terminée, exécutez le programme en utilisant la commande suivante :
    - **Sur Linux et macOS** :
@@ -86,3 +86,6 @@ Le résultat sera affiché dans la console et également écrit dans un fichier 
 - [Colin](https://github.com/Colin503)
 - [Manech](https://github.com/Mvnech)
 
+## Répertoire
+
+- [Arbre_Genealogique_CIR1]([https://github.com/Colin503](https://github.com/Colin503/Arbre_Genealogique_CIR1))
