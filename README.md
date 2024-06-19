@@ -48,8 +48,8 @@ Suivez ces étapes pour configurer et exécuter le programme :
 
 1. **Cloner le dépôt** (si nécessaire) :
    ```sh
-   git clone <URL_du_dépôt>
-   cd <nom_du_dépôt>
+   git clone <https://github.com/Colin503/Arbre_Genealogique_CIR1.git>
+   cd <Arbre_Genealogique_CIR1.git>
    ```
 
 2. **Compiler le programme** :
