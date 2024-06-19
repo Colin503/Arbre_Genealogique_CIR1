@@ -1,5 +1,5 @@
-#ifndef PROJET_FIN_POPULATION_H
-#define PROJET_FIN_POPULATION_H
+#ifndef PROJETCIR1_RENNES_GROUPE4_POPULATION_H
+#define PROJETCIR1_RENNES_GROUPE4_POPULATION_H
 
 #include "person.h"
 
@@ -11,4 +11,4 @@ typedef struct pop{
 void insert(Population* p, int key, Person* data );
 void linkPopulation(Population p);
 
-#endif //PROJET_FIN_POPULATION_H
+#endif //PROJETCIR1_RENNES_GROUPE4_POPULATION_H
