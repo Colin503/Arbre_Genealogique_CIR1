@@ -1,5 +1,6 @@
-#ifndef PROJET_FIN_PROJET_H
-#define PROJET_FIN_PROJET_H
+#ifndef PROJET_FIN_PERSON_H
+#define PROJET_FIN_PERSON_H
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -16,9 +17,7 @@ typedef struct person{
     struct person * p_father;
     struct person * p_mother;
 }Person;
+
 Person* initPerson(char* csvline);
 
-
-
-
-#endif //PROJET_FIN_PROJET_H
+#endif //PROJET_FIN_PERSON_H
