@@ -100,6 +100,8 @@ void exportAncestorHTML(const Population t,Person* p, char* path){
         printAncestorsToHTML(buffer2,t, p);// Génère le contenu HTML des ancêtres
         fprintf(f,"\t%s\n",buffer2);
         fprintf(f,"</div></body>\n</html>");
+        fclose(f);
+
 }
 
 // Fonction pour générer le contenu HTML d'une fiche personnelle
@@ -131,6 +133,7 @@ void exportficheHTML(const Population t,Person* p, char* path){
     contenu_fiche(buffer2,t,p);// Génère le contenu HTML de la fiche
     fprintf(f,"\t%s\n",buffer2);
     fprintf(f,"</div></body>\n</html>");
+    fclose(f);
 }
 
 // Fonction pour générer l'HTML de la fratrie d'une personne
