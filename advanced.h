@@ -1,5 +1,5 @@
-#ifndef PROJET_FIN_ADVANCED_H
-#define PROJET_FIN_ADVANCED_H
+#ifndef PROJETCIR1_RENNES_GROUPE4_ADVANCED_H
+#define PROJETCIR1_RENNES_GROUPE4_ADVANCED_H
 
 #include "filemanager.h"
 
@@ -14,4 +14,4 @@ Person* oldestancertor(Person* p);
 void ancestors_debug(Person** tab,const char* filen);
 void fratrie_debug(Person** tab,const char* filen);
 
-#endif //PROJET_FIN_ADVANCED_H
+#endif //PROJETCIR1_RENNES_GROUPE4_ADVANCED_H
